@@ -1,0 +1,13 @@
+<div class="example-container">
+  <img src="https://userscontent2.emaze.com/images/79539354-3269-475b-be0b-342a70e0e320/00c2a5038a8da9f6bd268eec16cde465.png" alt="">
+
+  <mat-form-field>
+    <textarea matInput placeholder="¿Cual es el nombre de tu curso?" style="max-height: 50px" [(ngModel)]="newCourse.name"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="¡Cuentanos de que trata!" style="max-height: 50px" [(ngModel)]="newCourse.description"></textarea>
+  </mat-form-field>
+
+    <button mat-button (click)="addCourse()">¡Agregar!</button>
+</div>

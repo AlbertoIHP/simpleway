@@ -1,0 +1,7 @@
+server/.env
+server/package-lock.json
+server/node_modules
+server/test
+cliente/node_modules
+cliente/package-lock.json
+cliente/e2e

@@ -1,0 +1,151 @@
+
+
+
+
+
+<div class="row">
+  <div class="col s1" >
+  <input (click)="changeSearch()" type="checkbox" id="test5" />
+  <label for="test5" class="selectRaro"></label>
+
+  </div>
+  <div class="col s11">
+  <label for="miinput">Busqueda por Nombre del Curso</label>
+  <input matInput #filter style="width: 100% !important;" id="miinput">
+  </div>
+</div>
+
+
+
+<div class="example-container mat-elevation-z8">
+
+  <mat-table #table *ngIf="!searchByName" [dataSource]="dataSource">
+
+    <ng-container matColumnDef="Acciones">
+      <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+
+      <mat-cell *matCellDef="let row" >
+
+              <button mat-icon-button (click) = "editCourse(row)" >
+                <mat-icon>create</mat-icon>
+              </button>
+
+
+              <button mat-icon-button (click) = "deleteCourse(row)" >
+                <mat-icon>delete</mat-icon>
+              </button>
+
+      </mat-cell>
+
+
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="Nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Fecha de Creacion">
+      <mat-header-cell *matHeaderCellDef> Fecha de Creacion </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.date}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="Descripcion">
+      <mat-header-cell *matHeaderCellDef> Descripcion</mat-header-cell>
+      <mat-cell *matCellDef="let row" > {{row.description}}</mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <mat-table #table *ngIf="searchByName" [dataSource]="dataSource2">
+    <ng-container matColumnDef="Acciones">
+      <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+
+      <mat-cell *matCellDef="let row" >
+
+              <button mat-icon-button (click) = "editCourse(row)" >
+                <mat-icon>create</mat-icon>
+              </button>
+
+
+              <button mat-icon-button (click) = "deleteCourse(row)" >
+                <mat-icon>delete</mat-icon>
+              </button>
+
+      </mat-cell>
+
+
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="Nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Fecha de Creacion">
+      <mat-header-cell *matHeaderCellDef> Fecha de Creacion </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.date}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="Descripcion">
+      <mat-header-cell *matHeaderCellDef> Descripcion</mat-header-cell>
+      <mat-cell *matCellDef="let row" > {{row.description}}</mat-cell>
+    </ng-container>
+
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+
+
+  <mat-paginator #paginator
+                [length]="mineCourses.length"
+                [pageIndex]="0"
+                [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+</div>
+
+ <div class="fixed-action-btn">
+    <a class="btn-floating btn-large orange" (click)="createCourse()">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>

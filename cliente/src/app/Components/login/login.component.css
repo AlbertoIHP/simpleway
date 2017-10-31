@@ -1,0 +1,12 @@
+#loginBox
+{
+   /* background: lightblue;
+*/}
+
+.example-full-width {
+  width: 100%;
+}
+
+.fondoLogin {
+  background-image: url('../../../assets/loginback.jpg');
+}

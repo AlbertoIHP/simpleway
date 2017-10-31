@@ -1,0 +1,32 @@
+<mat-toolbar style="color: black" *ngIf="usuarioLogeado">
+<mat-button-toggle-group >
+
+  <mat-button-toggle (click)="irIC()">
+    <mat-icon >school</mat-icon>
+    Cursos Inscritos
+  </mat-button-toggle >
+  <mat-button-toggle value="center" (click)="irMC()">
+    <mat-icon >work</mat-icon>
+    Mis Cursos
+  </mat-button-toggle>
+  <mat-button-toggle value="right" (click)="irAC()">
+    <mat-icon >view_comfy</mat-icon>
+    Cursos Disponibles
+  </mat-button-toggle>
+
+</mat-button-toggle-group>
+
+
+
+  <span class="example-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon >more_vert</mat-icon>
+  </button>
+</mat-toolbar>
+<router-outlet></router-outlet>
+
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Editar Perfil</button>
+  <button mat-menu-item (click)="cerrarSesion()">Cerrar Sesion</button>
+</mat-menu>
