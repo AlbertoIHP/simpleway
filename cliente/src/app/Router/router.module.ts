@@ -8,10 +8,11 @@ import { LoginComponent } from '../Components/login/login.component'
 
 const routes: Routes =
 [
-  { path: '',  component: LoginComponent },
+  { path: '',  component: InscribedcoursesComponent },
   { path: 'mc',  component: MinecoursesComponent },
   { path: 'ic',  component: InscribedcoursesComponent },
-  { path: 'ac',  component: CoursesComponent }
+  { path: 'ac',  component: CoursesComponent },
+  { path: 'login',  component: LoginComponent }
 ];
 
 export const appRoutingProviders: any[] = [

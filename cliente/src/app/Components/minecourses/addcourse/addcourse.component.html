@@ -1,13 +1,125 @@
-<div class="example-container">
-  <img src="https://userscontent2.emaze.com/images/79539354-3269-475b-be0b-342a70e0e320/00c2a5038a8da9f6bd268eec16cde465.png" alt="">
+<mat-horizontal-stepper >
 
-  <mat-form-field>
-    <textarea matInput placeholder="¿Cual es el nombre de tu curso?" style="max-height: 50px" [(ngModel)]="newCourse.name"></textarea>
-  </mat-form-field>
+  <mat-step>
 
-  <mat-form-field>
-    <textarea matInput placeholder="¡Cuentanos de que trata!" style="max-height: 50px" [(ngModel)]="newCourse.description"></textarea>
-  </mat-form-field>
+      <ng-template matStepLabel>Informacion general</ng-template>
 
-    <button mat-button (click)="addCourse()">¡Agregar!</button>
-</div>
+        <div class="example-container">
+          <img  style="max-width: 500px; max-height: 500px; margin-left: 25%" src="https://userscontent2.emaze.com/images/79539354-3269-475b-be0b-342a70e0e320/00c2a5038a8da9f6bd268eec16cde465.png">
+
+          <div class="row">
+            <div class="col s4">
+              <label for="">¿Cual es el nombre de tu curso?</label>
+              <input matInput [(ngModel)]="newCourse.name" (ngModelChange)="activeNext()"/>
+            </div>
+            <div class="col s4">
+              <label for="">¡Cuentanos de que trata!</label>
+              <input  matInput [(ngModel)]="newCourse.description" (ngModelChange)="activeNext()"/>
+            </div>
+            <div class="col s4">
+              <label for="">¿Cuantos videos tiene tu curso?</label>
+              <input  matInput [(ngModel)]="newCourse.totalvids" (ngModelChange)="activeNext()"/>
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+
+
+
+
+      <div>
+        <button mat-button matStepperNext style="width: 100%" disabled="{{isFullyCourseInformation}}">Siguiente<mat-icon>arrow_forward</mat-icon></button>
+      </div>
+
+
+  </mat-step>
+
+
+
+
+  <mat-step >
+      <ng-template matStepLabel>Videos del curso</ng-template>
+
+
+        <div class="example-container">
+
+
+          <img  style="max-width: 300px; max-height: 300px; margin-left: 34%" src="https://openclipart.org/image/800px/svg_to_png/188943/playbuttonclear.png" >
+
+          <div class="row">
+            <div class="col s4">
+              <label for="">¿Cual es el nombre de este video?</label>
+              <input matInput [(ngModel)]="newVideo.name" (ngModelChange)="activeVideo()"/>
+            </div>
+            <div class="col s4">
+              <label for="">¡Cuentanos de que trata!</label>
+              <input  matInput [(ngModel)]="newVideo.description"(ngModelChange)="activeVideo()"/>
+            </div>
+            <div class="col s4">
+              <label for="">¿Cual es la URL?</label>
+              <input  matInput [(ngModel)]="newVideo.url" (ngModelChange)="activeVideo()"/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s12">
+              <mat-form-field style="width: 100%; text-align: center">
+                <mat-select placeholder="¿Que numero de Video es?" [(ngModel)]="newVideo.number" (ngModelChange)="activeVideo()">
+                  <mat-option *ngFor="let number of numberVideos" [value]="number">
+                    {{number}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+
+      <div class="row">
+        <div class="col s4">
+        <button mat-button matStepperPrevious style="width: 100%"><mat-icon>arrow_back</mat-icon>Volver</button>
+        </div>
+
+        <div class="col s4">
+        <button mat-button style="width: 100%" disabled="{{isFullyVideoInformation}}" (click)="addVideo()"><mat-icon>add</mat-icon>Agregar Video</button>
+        </div>
+
+        <div class="col s4">
+        <button mat-button matStepperNext style="width: 100%" disabled="{{isAddAllVideos}}">Siguiente<mat-icon>arrow_forward</mat-icon></button>
+        </div>
+      </div>
+
+  </mat-step>
+
+
+
+
+
+
+  <mat-step>
+
+    <ng-template matStepLabel>Resumen</ng-template>
+
+
+      <app-videoscourse  *ngIf="!isAddAllVideos"></app-videoscourse>
+
+
+    <div class="row">
+
+      <div class="col s6">
+        <button mat-button matStepperPrevious style="width: 100%"><mat-icon>arrow_back</mat-icon>Volver</button>
+      </div>
+
+      <div class="col s6">
+        <button mat-button (click)="addCourse()" style="width: 100%">¡Agregar!<mat-icon>add_circle</mat-icon></button>
+      </div>
+
+    </div>
+
+  </mat-step>
+
+</mat-horizontal-stepper>

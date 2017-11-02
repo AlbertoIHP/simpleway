@@ -7,7 +7,8 @@ import { schema } from './model'
 export Course, { schema } from './model'
 
 const router = new Router()
-const { name, date, description, users_id } = schema.tree
+const { name, date, description, totalvids, users_id } = schema.tree
+const requestBody = { name, date, description, totalvids, users_id }
 const pedirToken = false
 
 /**
@@ -27,7 +28,7 @@ const pedirToken = false
  */
 router.post('/',
   token({ required: pedirToken }),
-  body({ name, date, description, users_id }),
+  body(requestBody),
   create)
 
 /**
@@ -78,7 +79,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: pedirToken }),
-  body({ name, date, description, users_id }),
+  body(requestBody),
   update)
 
 /**

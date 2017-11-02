@@ -40,7 +40,8 @@ export class MinecoursesComponent implements OnInit {
   'Acciones',
   'Nombre',
   'Fecha de Creacion',
-  'Descripcion'
+  'Descripcion',
+  'Videos'
   ];
 
   //DATATABLE
@@ -59,6 +60,7 @@ export class MinecoursesComponent implements OnInit {
   public currentUser: any
 
   public mineCourses: Course[]
+  public newVideo: Video
 
   constructor(
     public router: Router,
@@ -70,10 +72,11 @@ export class MinecoursesComponent implements OnInit {
 
     if( !(this.currentUser = JSON.parse(localStorage.getItem('currentUser')) ))
     {
-      this.router.navigate(['/'])
+      this.router.navigate(['/login'])
     }
     else
     {
+     this.newVideo = new Video()
      this.totalVideos = []
      this.totalCourses = []
      this.totalUsers = []
@@ -182,10 +185,12 @@ export class MinecoursesComponent implements OnInit {
   createCourse()
   {
     let dialogRef = this.dialog.open(AddcourseComponent, {
-      width: '500px',
+      width: '1000px',
       data: {
         courseService: this.courseService,
-        currentUser: this.currentUser
+        currentUser: this.currentUser,
+        newVideo: this.newVideo,
+        videoService: this.videoService
       }
     });
 

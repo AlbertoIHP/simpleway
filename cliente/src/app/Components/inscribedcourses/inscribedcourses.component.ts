@@ -14,7 +14,7 @@ export class InscribedcoursesComponent implements OnInit {
   constructor( public router: Router ) {
     if( !(localStorage.getItem('currentUser')) )
     {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
     }
    }
 

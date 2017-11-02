@@ -24,7 +24,7 @@
       <mat-icon >lock</mat-icon>
     </div>
     <div class="col s11">
-      <input matInput placeholder="Contraseña" type="password" [(ngModel)]="password">
+      <input matInput placeholder="Contraseña" type="password" [(ngModel)]="password" (ngModelChange)="activeLogIn()">
     </div>
   </div>
   </mat-card-content>
@@ -32,7 +32,7 @@
   <mat-card-actions>
     <div class="row" style="margin-bottom: 1%">
       <div class="col s12" >
-    <button mat-button style="width: 100%" (click)="login()">Iniciar Sesion</button>
+    <button mat-button style="width: 100%" (click)="login()" disabled="{{isLoginable}}">Iniciar Sesion</button>
       </div>
     </div>
     <div class="row">

@@ -16,10 +16,12 @@ import { ElementRef, ViewChild, Inject } from '@angular/core';
 export class LoginComponent implements OnInit {
   public user: string
   public password: string
+  public isLoginable: boolean
 
   constructor( public dialog: MatDialog, public eventService: EventService, private router: Router, public authService: AuthenticationService) {
     this.user = ''
     this.password = ''
+    this.isLoginable = true
     this.eventService.isSingUp.subscribe( (newUser) => {
       this.user =  newUser.email
       this.password = newUser.password
@@ -66,4 +68,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
+
+  activeLogIn()
+  {
+    if( this.password != '' )
+    {
+      this.isLoginable = false
+    }
+    else
+    {
+      this.isLoginable = true
+    }
+  }
 }

@@ -34,6 +34,7 @@ export class VideoService {
   {
     video.access_token = this.authService.token
     var stringVideo = JSON.stringify( video )
+    console.log(stringVideo)
     return this.http.post( this.base, stringVideo, this.options).map( ( res: Response ) => res.json() )
 
   }

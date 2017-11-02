@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col s12" style="text-align: center">
+    <h4>Resumen del curso</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12">
+  <label for="">Nombre</label>
+    <p>{{currentCourse.name}}</p>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col s12">
+  <label for="">Descripcion del Curso</label>
+    <p>{{currentCourse.description}}</p>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col s12" style="text-align: center">
+    <h5>Videos</h5>
+  </div>
+</div>
+
+<div class="row" *ngFor="let video of totalVideos">
+  <div class="row">
+    <div class="col s3">
+      <iframe width="160" height="160" [src]='sanitizer.bypassSecurityTrustResourceUrl(video.url.replace("watch?v=", "embed/"))' frameborder="0"  allowfullscreen></iframe>
+    </div>
+    <div class="col s9">
+      <h6>Titulo:</h6> {{video.name}}
+      <h6>Descripcion:</h6> {{video.description}}
+      <h6>Numero: </h6>  {{video.number}} / {{currentCourse.totalvids}}
+    </div>
+  </div>
+
+</div>

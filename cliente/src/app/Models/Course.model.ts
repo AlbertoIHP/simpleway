@@ -3,6 +3,7 @@ export class Course {
   id: string
   name: string
   date: string
+  totalvids: string
   description: string
   users_id: string
 
@@ -12,6 +13,7 @@ export class Course {
     this.id = ''
     this.name = ''
     this.date = ''
+    this.totalvids = ''
     this.description = ''
     this.users_id = ''
   }

@@ -13,6 +13,10 @@ const courseSchema = new Schema({
     type: String,
     required: true
   },
+  totalvids: {
+    type: String,
+    required: true
+  },
   users_id: {
     type: String,
     required: true
@@ -29,6 +33,7 @@ courseSchema.methods = {
       name: this.name,
       date: this.date,
       description: this.description,
+      totalvids: this.totalvids,
       users_id: this.users_id,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
