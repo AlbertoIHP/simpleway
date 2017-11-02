@@ -1,3 +1,33 @@
-<p>
-  courses works!
-</p>
+<div class="row" style="margin-left: 25%;  margin-right: 25%">
+  <div class="col s11" >
+        <label for="search">Buscar...</label>
+        <input matInput id="search" [(ngModel)]="search">
+  </div>
+  <div class="col s1">
+      <button (click)="searchBy()" mat-icon-button style="margin-top: 26px">
+        <mat-icon aria-label="Example icon-button with a heart icon">search</mat-icon>
+      </button>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <mat-grid-list cols="3" rowHeight="400px" style="width: 100%">
+    <mat-grid-tile *ngFor=" let course of totalCourses">
+      <mat-card style="width: 90%; height: 90%%">
+        <img mat-card-image src="http://www.capacityacademy.com/uploads/6/4/8/3/6483237/_________667043846.png" style="max-height: 100px; max-width: 100px; margin-left: 40%; margin-top: 5px">
+        <hr>
+        <mat-card-header>
+          <mat-card-title><h4>Nombre: {{course.name}}</h4></mat-card-title>
+          <mat-card-subtitle>Descripcion: {{course.description}}</mat-card-subtitle>
+        </mat-card-header>
+
+      <mat-card-actions>
+        <button (click)="seeCourse(course)" mat-button style="width: 100%" color="primary">Ver curso</button>
+      </mat-card-actions>
+
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

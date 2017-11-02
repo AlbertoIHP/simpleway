@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders } from './Router/router.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatStepperModule, MatCardModule, MatGridListModule, MatButtonToggleModule, MatTabsModule, MatInputModule , MatSelectModule, MatDialogModule, MatPaginatorModule, MatTableModule, MatButtonModule, MatCheckboxModule, MatSidenavModule, MatToolbarModule, MatMenuModule, MatIconModule } from '@angular/material';
+import { MatListModule, MatStepperModule, MatCardModule, MatGridListModule, MatButtonToggleModule, MatTabsModule, MatInputModule , MatSelectModule, MatDialogModule, MatPaginatorModule, MatTableModule, MatButtonModule, MatCheckboxModule, MatSidenavModule, MatToolbarModule, MatMenuModule, MatIconModule } from '@angular/material';
 import { MomentModule } from 'angular2-moment';
 
 
@@ -27,6 +27,7 @@ import { RegisterComponent } from './Components/login/register/register.componen
 import { AddcourseComponent } from './Components/minecourses/addcourse/addcourse.component';
 import { EditcourseComponent } from './Components/minecourses/editcourse/editcourse.component';
 import { VideoscourseComponent } from './Components/minecourses/videoscourse/videoscourse.component';
+import { ViewcourseComponent } from './Components/viewcourse/viewcourse.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { VideoscourseComponent } from './Components/minecourses/videoscourse/vid
     RegisterComponent,
     AddcourseComponent,
     EditcourseComponent,
-    VideoscourseComponent
+    VideoscourseComponent,
+    ViewcourseComponent
   ],
 
     entryComponents:
@@ -71,7 +73,8 @@ import { VideoscourseComponent } from './Components/minecourses/videoscourse/vid
     MatGridListModule,
     MatCardModule,
     MomentModule,
-    MatStepperModule
+    MatStepperModule,
+    MatListModule
   ],
   providers: [
     AuthenticationService,

@@ -177,6 +177,8 @@ export class MinecoursesComponent implements OnInit {
   deleteCourse(course)
   {
     this.courseService.deleteCourse(course.id).subscribe(data => {
+
+      localStorage.removeItem('currentCourse');
       this.getVideos()
     })
   }
@@ -203,6 +205,12 @@ export class MinecoursesComponent implements OnInit {
   changeSearch()
   {
     this.searchByName = !this.searchByName
+  }
+
+  viewCourse(course)
+  {
+    localStorage.setItem('currentCourse', JSON.stringify(course))
+    this.router.navigate(['vc'])
   }
 
 

@@ -35,6 +35,11 @@
                 <mat-icon>delete</mat-icon>
               </button>
 
+
+              <button mat-icon-button (click) = "viewCourse(row)" >
+                <mat-icon>remove_red_eye</mat-icon>
+              </button>
+
       </mat-cell>
 
 
@@ -109,6 +114,11 @@
                 <mat-icon>delete</mat-icon>
               </button>
 
+
+              <button mat-icon-button (click) = "viewCourse(row)" >
+                <mat-icon>remove_red_eye</mat-icon>
+              </button>
+
       </mat-cell>
 
 
@@ -130,6 +140,12 @@
     <ng-container matColumnDef="Descripcion">
       <mat-header-cell *matHeaderCellDef> Descripcion</mat-header-cell>
       <mat-cell *matCellDef="let row" > {{row.description}}</mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="Videos">
+      <mat-header-cell *matHeaderCellDef> Videos</mat-header-cell>
+      <mat-cell *matCellDef="let row" > {{row.totalvids}}</mat-cell>
     </ng-container>
 
 

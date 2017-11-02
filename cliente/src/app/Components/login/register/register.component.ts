@@ -11,6 +11,7 @@ import { EventService } from '../../../Services/events.service'
 })
 export class RegisterComponent implements OnInit {
   public newUser: User
+  public isRegistrable: boolean = true
 
   constructor(
     public userService: UserService,
@@ -38,6 +39,20 @@ export class RegisterComponent implements OnInit {
       })
     }
 
+  }
+
+  activeRegister()
+  {
+    console.log("Hola")
+    if ( this.newUser.email != '' && this.newUser.name != '' && this.newUser.password != '')
+    {
+
+      this.isRegistrable = false
+    }
+    else
+    {
+      this.isRegistrable = true
+    }
   }
 
 }

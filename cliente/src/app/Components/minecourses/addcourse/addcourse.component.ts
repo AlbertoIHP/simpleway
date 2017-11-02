@@ -59,8 +59,42 @@ export class AddcourseComponent implements OnInit {
       this.newCourse.date = moment().format('LLLL')
       console.log(this.newCourse)
       this.courseService.registerCourse(this.newCourse).subscribe( data => {
-        this.dialogRef.close()
       })
+
+
+      this.courseService.getCourses().subscribe( data => {
+        var total = data
+
+        for ( let i = 0 ; i < total.length ; i++ )
+        {
+          if(total[i].name === this.newCourse.name)
+          {
+            this.newCourse = total[i]
+            break
+          }
+        }
+
+
+        for ( let j = 0 ; j < this.totalVideos.length ; j ++ )
+        {
+
+          this.totalVideos[j].course_id = this.newCourse.id
+          this.videoService.registerVideo(this.totalVideos[j]).subscribe( data => {
+            console.log(data)
+          })
+
+
+        }
+
+
+        alert("¡Curso creado exitosamente!")
+        this.dialogRef.close()
+
+
+      })
+
+
+
     }
   }
 
@@ -103,10 +137,6 @@ export class AddcourseComponent implements OnInit {
 
   addVideo()
   {
-    this.newVideo.course_id = this.currentUser.id
-
-    this.videoService.registerVideo(this.newVideo).subscribe( data => {
-
       for ( let j = 0 ; j < this.numberVideos.length ; j++ )
       {
         if(this.numberVideos[j] === this.newVideo.number)
@@ -115,8 +145,6 @@ export class AddcourseComponent implements OnInit {
           break
         }
       }
-
-
 
        this.totalVideos.push(this.newVideo)
        this.newVideo = new Video()
@@ -129,12 +157,6 @@ export class AddcourseComponent implements OnInit {
         this.isFullyVideoInformation = true
         this.isAddAllVideos = false
        }
-
-       alert("Video guardado")
-
-
-    })
-
 
   }
 }

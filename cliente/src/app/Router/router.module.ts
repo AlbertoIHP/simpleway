@@ -5,6 +5,7 @@ import { MinecoursesComponent } from '../Components/minecourses/minecourses.comp
 import { InscribedcoursesComponent } from '../Components/inscribedcourses/inscribedcourses.component'
 import { CoursesComponent } from '../Components/courses/courses.component'
 import { LoginComponent } from '../Components/login/login.component'
+import { ViewcourseComponent } from '../Components/viewcourse/viewcourse.component'
 
 const routes: Routes =
 [
@@ -12,7 +13,8 @@ const routes: Routes =
   { path: 'mc',  component: MinecoursesComponent },
   { path: 'ic',  component: InscribedcoursesComponent },
   { path: 'ac',  component: CoursesComponent },
-  { path: 'login',  component: LoginComponent }
+  { path: 'login',  component: LoginComponent },
+  { path: 'vc',  component: ViewcourseComponent }
 ];
 
 export const appRoutingProviders: any[] = [

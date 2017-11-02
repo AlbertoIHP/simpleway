@@ -35,7 +35,7 @@ export class InscribeService {
   registerInscribed ( inscribed: Inscribe )
   {
     inscribed.access_token = this.authService.token
-    var stringInscribe = JSON.stringify(Inscribe)
+    var stringInscribe = JSON.stringify(inscribed)
     return this.http.post( this.base, stringInscribe, this.options).map( ( res: Response ) => res.json() )
 
   }
@@ -54,7 +54,7 @@ export class InscribeService {
   editInscribed ( inscribed: Inscribe, id )
   {
     inscribed.access_token = this.authService.token
-    var stringInscribe = JSON.stringify(Inscribe)
+    var stringInscribe = JSON.stringify(inscribed)
 
     return this.http.put( this.base+id, stringInscribe, this.options ).map( ( res: Response ) => res.json() )
   }
